@@ -7,8 +7,11 @@
 #    Return the ratio of integers from a vector up to
 #	six decimals from the decimal.
 ###############################################################
-a.out:	ratio.o
-	g++	ratio.o
+a.out:	ratio.o	RatioDriver.o
+	g++	ratio.o	RatioDriver.o
 
 ratio.o:	ratio.h	ratio.cpp
-	g++	-c ratio.o
+	g++	-c ratio.cpp
+
+RatioDriver.o:	RatioDriver.cpp
+	g++	-c	RatioDriver.cpp
