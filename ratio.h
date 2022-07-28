@@ -26,9 +26,9 @@ class Ratio
             int k);
 
     // Accessors
-        std::vector<int> gettester();
-        int getI();
-        int getK();
+        std::vector<int> gettester() const;
+        int getI() const;
+        int getK() const;
 
     // Mutators
         void settester(std::vector<int> tester);

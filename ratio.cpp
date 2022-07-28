@@ -40,6 +40,7 @@ Ratio::Ratio(std::vector<int> tester)
     settester(tester);
 }
 
+
 Ratio::Ratio(std::vector<int> tester,
     int i,
     int k)
@@ -70,17 +71,17 @@ void Ratio::setK(int k)
 /**********************************
  * Accessors
  * ********************************/
-std::vector<int> Ratio::gettester()
+std::vector<int> Ratio::gettester() const
 {
     return *tester;
 }
 
-int Ratio::getI()
+int Ratio::getI() const
 {
     return *i;
 }
 
-int Ratio::getK()
+int Ratio::getK() const
 {
     return *k;
 }

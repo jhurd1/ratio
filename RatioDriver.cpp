@@ -4,8 +4,9 @@
  * ***********************************/
 int main(int argc, char *argv[])
 {
-    Ratio ra;
-    const int p = ra.getI();
-    ra.showRatio(p, ra.gettester());
+    Ratio r;
+    int i;
+    std::vector<int> *temp = nullptr;
+    r.showRatio(i, temp);
     return 0;
 }
