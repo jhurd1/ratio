@@ -8,15 +8,20 @@
 int main(int argc, char *argv[])
 {
     Ratio r;
-    //int *i = nullptr;
     int i = 0;
+    bool stopper = false;
     std::vector<int> *tester = new std::vector<int>;
     try
     {
-     std::cout << "Provide integers for the vector" << std::endl;
-     while(std::cin >> i) //bad access here
+     std::cout << "Provide five integers for the vector" << std::endl;
+     while(!stopper)
      {
-      tester->push_back(i);
+      for(int j = 0; j < 5; ++j)
+      {
+       std::cin >> i;
+       tester->push_back(i);
+      }
+      stopper =  true;
      }
      r.showRatio(i, tester);
     } catch(std::exception &e)
@@ -26,3 +31,4 @@ int main(int argc, char *argv[])
     delete tester;
     return 0;
 }
+

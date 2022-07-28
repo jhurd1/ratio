@@ -92,18 +92,15 @@ int Ratio::getK() const
 int Ratio::showRatio(int &i, std::vector<int> *tester)
 {
  //evaluate whether each item matches another
+  std::cout << "Contents of the vector:" << std::endl;
     for(auto &it : *tester)
     {
-        if(it == 0)
-        {
-            std::cout << "0" << std::endl;
-        }
-        if(it == it + 1)
-        {
-            ++k; // count the match
-        }
-        ++ratioStruct.j; // count size of vector
+     std::vector<int>::iterator iterator = std::find(tester->begin(), tester->end(), it);
+     if(*iterator == *it)
+     {
+      std::cout << "Match" << it;
+     }
+     std::cout << it << " ";
     }
-    std::cout << "Vector size: " << ratioStruct.j;
     return i;
 }
