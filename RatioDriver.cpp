@@ -4,6 +4,8 @@
  * ***********************************/
 int main(int argc, char *argv[])
 {
-    Ratio r;
+    Ratio ra;
+    const int p = ra.getI();
+    ra.showRatio(p, ra.gettester());
     return 0;
 }

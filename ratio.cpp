@@ -1,4 +1,4 @@
-#include "Ratio.h"
+#include "ratio.h"
 #include <iostream>
 
 /*********************************
@@ -90,15 +90,19 @@ int Ratio::getK()
  * ********************************/
 int Ratio::showRatio(int &i, std::vector<int> *tester)
 {
+ //evaluate whether each item matches another
     for(auto &it : *tester)
     {
         if(it == 0)
         {
             std::cout << "0" << std::endl;
         }
-        if(it == 1)
+        if(it == it + 1)
         {
-            std::cout << "1" << std::endl;
+            ++k; // count the match
         }
+        ++ratioStruct.j; // count size of vector
     }
+    std::cout << "Vector size: " << ratioStruct.j;
+    return i;
 }

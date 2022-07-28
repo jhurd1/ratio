@@ -1,6 +1,6 @@
 #include <vector>
-#ifndef RATIO.H
-#define RATIO.H
+#ifndef RATIO_H
+#define RATIO_H
 /************************************
  * RATIO
  * A class to test divulging a ratio
