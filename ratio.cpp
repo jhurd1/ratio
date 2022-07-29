@@ -92,23 +92,15 @@ int Ratio::getK() const
 int Ratio::showRatio(int &i, std::vector<int> *tester)
 {
   int count = 0;
-    for(auto &it : *tester)
-    {
-     if(tester[i - 1] == tester[i]) // n - 1 represents the last integer, or more plausibly, the last one read by the iterator
-     {
-      count++;
-     }
-     if(it == it + 1)
-     {
-      count++;
-      std::cout << "Found a match! It is: " << it << std::endl;
-     }
-     if(it == 0)
-     {
-      std::cout << it << std::endl;
-     }
-     ratioStruct.j++;
-    }
-     std::cout << "The ratio of matching integers in this vector: " << count << " / " << ratioStruct.j << std::endl;
+  std::vector<int>::iterator it;
+  for(it = tester->begin(); it != tester->end(); it++)
+  {
+   if(*it == i)
+   {
+    count++;
+   }
+   ++ratioStruct.j;
+  }
+    std::cout << "The ratio of matching integers in this vector: " << count << " / " << ratioStruct.j << std::endl;
     return i;
 }
