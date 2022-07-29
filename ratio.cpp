@@ -9,16 +9,21 @@
 Ratio r;
 
 /***********************************
- * A struct to test
- * swapping of values,
- * if necessary.
+ * A struct for
+ * comparison.
  * ********************************/
-struct
+struct ratioStruct
 {
-    Ratio r;
-    int j;
-    int l;
-} ratioStruct;
+    int k;
+    ratioStruct(int const &i): k(i)
+    {
+     
+    }
+    bool operator()(int const &i)
+    {
+     return (i == k);
+    }
+};
 
 
 /***********************************
@@ -41,32 +46,12 @@ Ratio::Ratio(std::vector<int> tester)
     settester(tester);
 }
 
-
-Ratio::Ratio(std::vector<int> tester,
-    int i,
-    int k)
-{
-    settester(tester);
-    setI(i);
-    setK(k);
-}
-
 /**********************************
  * Mutators
  * ********************************/
  void Ratio::settester(std::vector<int> tester)
 {
     r.tester = &tester;
-}
-
-void Ratio::setI(int i)
-{
-    r.i = &i;
-}
-
-void Ratio::setK(int k)
-{
-    r.k = &k;
 }
 
 /**********************************
@@ -77,39 +62,15 @@ std::vector<int> Ratio::gettester() const
     return *tester;
 }
 
-int Ratio::getI() const
-{
-    return *i;
-}
-
-int Ratio::getK() const
-{
-    return *k;
-}
-
 /**********************************
  * OTHER DATA MEMBERS
  * ********************************/
-int Ratio::showRatio(std::vector<int> *tester)
+int Ratio::showRatio(std::vector<int> *tester, int k)
 {
-  int count = 0;
-  //std::vector<int>::iterator it;
-
-  /*for(it = tester->begin(); it != tester->end(); it++)
+  auto itr = std::find_if(tester->cbegin(), tester->cend(), ratioStruct(k));
+  if(itr != tester->cend())
   {
-   if((*it == *it - 1) && (*it != 0))
-   {
-    ++count;
-   }
-  }*/
-  for(*i = 1; *i < tester->size(); i++)
-  {
-   if(tester[*i].size() == tester[*i - 1].size())
-   {
-    ++count;
-   }
+   return std::distance(tester->cbegin(), itr);
   }
-    std::cout << "The ratio of matching integers in this vector: " << count << " / " << tester->size() << std::endl;
-    std::cout << "In decimal up to six places therefrom: " << std::setprecision(6) <<  std::setw(10) << count % tester->size() << std::endl;
-    return *i;
+  return 0;
 }
