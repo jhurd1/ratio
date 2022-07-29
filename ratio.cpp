@@ -90,18 +90,26 @@ int Ratio::getK() const
 /**********************************
  * OTHER DATA MEMBERS
  * ********************************/
-int Ratio::showRatio(int &i, std::vector<int> *tester)
+int Ratio::showRatio(std::vector<int> *tester)
 {
   int count = 0;
-  std::vector<int>::iterator it;
-  for(it = tester->begin(); it != tester->end(); it++)
+  //std::vector<int>::iterator it;
+
+  /*for(it = tester->begin(); it != tester->end(); it++)
   {
-   if((*it == i) && (*it != 0))
+   if((*it == *it - 1) && (*it != 0))
+   {
+    ++count;
+   }
+  }*/
+  for(*i = 1; *i < tester->size(); i++)
+  {
+   if(tester[*i].size() == tester[*i - 1].size())
    {
     ++count;
    }
   }
     std::cout << "The ratio of matching integers in this vector: " << count << " / " << tester->size() << std::endl;
-    std::cout << "In decimal up to six places therefrom: " << std::setprecision(6) <<  count % tester->size() << std::endl;
-    return i;
+    std::cout << "In decimal up to six places therefrom: " << std::setprecision(6) <<  std::setw(10) << count % tester->size() << std::endl;
+    return *i;
 }

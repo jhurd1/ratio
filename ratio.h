@@ -36,7 +36,7 @@ class Ratio
         void setK(int k);
 
     //Other members
-        int showRatio(int &i, std::vector<int> *tester);
+        int showRatio(std::vector<int> *tester);
 };
 
 #endif
