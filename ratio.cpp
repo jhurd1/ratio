@@ -1,5 +1,6 @@
 #include "ratio.h"
 #include <iostream>
+#include <iomanip>
 
 /*********************************
  * DATA MEMBERS
@@ -95,12 +96,12 @@ int Ratio::showRatio(int &i, std::vector<int> *tester)
   std::vector<int>::iterator it;
   for(it = tester->begin(); it != tester->end(); it++)
   {
-   if(*it == i)
+   if((*it == i) && (*it != 0))
    {
-    count++;
+    ++count;
    }
-   ++ratioStruct.j;
   }
-    std::cout << "The ratio of matching integers in this vector: " << count << " / " << ratioStruct.j << std::endl;
+    std::cout << "The ratio of matching integers in this vector: " << count << " / " << tester->size() << std::endl;
+    std::cout << "In decimal up to six places therefrom: " << std::setprecision(6) <<  count % tester->size() << std::endl;
     return i;
 }

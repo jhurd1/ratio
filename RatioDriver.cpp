@@ -23,7 +23,7 @@ int main(int argc, char *argv[])
       }
       stopper =  true;
      }
-     r.showRatio(i, tester);
+      r.showRatio(i, tester);
     } catch(std::exception &e)
     {
      std::cout << "Something went wrong with the user input and function call block." << std::endl;
