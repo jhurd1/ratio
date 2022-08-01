@@ -76,21 +76,18 @@ bool isEqual(const int &m, const int &n)
  * ********************************/
 int Ratio::showRatio(std::vector<int> *tester, int k)
 {
- int count = 0;
- std::cout << count << " " << tester->size() << std::endl;
+ double count = 0.0;
+
  for(auto it = tester->begin(); it != tester->end(); it++)
  {
   if(isEqual(*it, *(it + 1)))
   {
-   count++;
+   count += 1.0;
   }
  }
- for(auto const &value : *tester)
- {
-  std::cout << value << " : vector values " << std::endl;
- }
+
   unsigned long dat = (tester->size() / count);
-  std::cout << count << " count" << std::endl;
+  std::cout << "Number of matches: " << count << std::endl;
   std::cout << dat << std::endl;
   return 0;
 }
