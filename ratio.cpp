@@ -62,6 +62,15 @@ std::vector<int> Ratio::gettester() const
     return *tester;
 }
 
+bool isEqual(const int &m, const int &n)
+{
+ if(m != n)
+ {
+  return false;
+ }
+ return true;
+}
+
 /**********************************
  * OTHER DATA MEMBERS
  * ********************************/
@@ -69,18 +78,17 @@ int Ratio::showRatio(std::vector<int> *tester, int k)
 {
  int count = 0;
  std::cout << count << " " << tester->size() << std::endl;
- for(int i = 0; i < tester->size(); i++)
+ for(auto it = tester->begin(); it != tester->end(); it++)
+ {
+  if(isEqual(*it, *(it + 1)))
   {
-   
-   if(tester[i] == tester[i + 1])
-   {
-    count++;
-   }
+   count++;
   }
-  for(auto const &value : *tester)
-  {
-   std::cout << value << std::endl;
-  }
+ }
+ for(auto const &value : *tester)
+ {
+  std::cout << value << " : vector values " << std::endl;
+ }
   unsigned long dat = (tester->size() / count);
   std::cout << count << " count" << std::endl;
   std::cout << dat << std::endl;
