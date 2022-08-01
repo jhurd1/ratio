@@ -67,10 +67,22 @@ std::vector<int> Ratio::gettester() const
  * ********************************/
 int Ratio::showRatio(std::vector<int> *tester, int k)
 {
-  auto itr = std::find_if(tester->cbegin(), tester->cend(), ratioStruct(k));
-  if(itr != tester->cend())
+ int count = 0;
+ std::cout << count << " " << tester->size() << std::endl;
+ for(int i = 0; i < tester->size(); i++)
   {
-   return std::distance(tester->cbegin(), itr);
+   
+   if(tester[i] == tester[i + 1])
+   {
+    count++;
+   }
   }
+  for(auto const &value : *tester)
+  {
+   std::cout << value << std::endl;
+  }
+  unsigned long dat = (tester->size() / count);
+  std::cout << count << " count" << std::endl;
+  std::cout << dat << std::endl;
   return 0;
 }
