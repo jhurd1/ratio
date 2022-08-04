@@ -1,4 +1,5 @@
 #include <vector>
+#include <set>
 #ifndef RATIO_H
 #define RATIO_H
 /************************************
@@ -19,10 +20,11 @@ class Ratio
      * ******************************/
     private:
         std::vector<int> *tester;
+        std::set<int> s;
     public:
     // Constructors
         Ratio();
-        Ratio(std::vector<int> tester);
+        Ratio(std::vector<int> tester, std::set<int> s);
 
     // Accessors
         std::vector<int> gettester() const;
@@ -30,10 +32,11 @@ class Ratio
 
     // Mutators
         void settester(std::vector<int> tester);
-        //void setK(int k);
+        void setset(std::set<int> s);
 
     //Other members
-        int showRatio(std::vector<int> *tester, int k);
+        std::set<int> storeCompare(std::vector<int> *tester);
+        int showRatio(std::vector<int> *tester, std::set<int> s);
 };
 
 #endif

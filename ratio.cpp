@@ -41,7 +41,7 @@ Ratio::Ratio()
 /**********************************
  * Non-default constructors
  * ********************************/
-Ratio::Ratio(std::vector<int> tester)
+Ratio::Ratio(std::vector<int> tester, std::set<int> s)
 {
     settester(tester);
 }
@@ -54,6 +54,11 @@ Ratio::Ratio(std::vector<int> tester)
     r.tester = &tester;
 }
 
+void Ratio::setset(std::set<int> s)
+{
+ r.s = s;
+}
+
 /**********************************
  * Accessors
  * ********************************/
@@ -62,6 +67,14 @@ std::vector<int> Ratio::gettester() const
     return *tester;
 }
 
+/**********************************
+ * OTHER DATA MEMBERS
+ * ********************************/
+/**********************************
+ * isEqual()
+ * A flag for controlling
+ * some other function's procedure.
+ * ********************************/
 bool isEqual(const int &m, const int &n)
 {
  if(m != n)
@@ -72,22 +85,53 @@ bool isEqual(const int &m, const int &n)
 }
 
 /**********************************
- * OTHER DATA MEMBERS
+ * storeCompare()
+ * Store the values held in the
+ * vector within the set for the
+ * upcoming comparison.
  * ********************************/
-int Ratio::showRatio(std::vector<int> *tester, int k)
+std::set<int> Ratio::storeCompare(std::vector<int> *tester)
 {
- double count = 0.0;
-
+ std::set<int> s;
  for(auto it = tester->begin(); it != tester->end(); it++)
  {
-  if(isEqual(*it, *(it + 1)))
+ if(it == tester->begin() || it == tester->end())
   {
-   count += 1.0;
+   tester->erase(it);
+  } else
+   {
+    s.insert(*it);
+   }
+ }
+ return s;
+}
+
+/**********************************
+ * showRatio()
+ * Compute the ratio of matches
+ * within the vector and output
+ * the computation to console
+ * in the decimal format to the
+ * millionths place.
+ * ********************************/
+int Ratio::showRatio(std::vector<int> *tester, std::set<int> s)
+{
+ double count = 0.0;
+ storeCompare(tester);
+ for(auto it = tester->begin(); it != tester->end(); it++)
+ {
+  for(int whatevz : s)
+  {
+   if(whatevz == *it)
+   {
+    count++;
+   }
   }
+  //stackoverflow.com/questions/37900432/ddg#37900496
  }
 
-  unsigned long dat = (tester->size() / count);
-  std::cout << "Number of matches: " << count << std::endl;
-  std::cout << dat << std::endl;
+  unsigned long dat = (count / tester->size()); // Computation for the ratio.
+  std::cout << "Number of matches: " << count << std::endl; // Console-out the number of matches.
+  std::cout << dat << "\n" << std::endl; // Console-out the computation.
   return 0;
 }
