@@ -95,7 +95,7 @@ std::set<int> Ratio::storeCompare(std::vector<int> *tester)
  std::set<int> s;
  for(auto it = tester->begin(); it != tester->end(); it++)
  {
- if(it == tester->begin() || it == tester->end())
+ if(*it == *s.end())
   {
    tester->erase(it);
   } else
