@@ -1,5 +1,5 @@
 #include <vector>
-#include <set>
+#include <unordered_map>
 #ifndef RATIO_H
 #define RATIO_H
 /************************************
@@ -20,11 +20,11 @@ class Ratio
      * ******************************/
     private:
         std::vector<int> *tester;
-        std::set<int> s;
+        std::unordered_map<int, unsigned int> counter;
     public:
     // Constructors
         Ratio();
-        Ratio(std::vector<int> tester, std::set<int> s);
+        Ratio(std::vector<int> tester, std::unordered_map<int, unsigned int> counter);
 
     // Accessors
         std::vector<int> gettester() const;
@@ -32,11 +32,11 @@ class Ratio
 
     // Mutators
         void settester(std::vector<int> tester);
-        void setset(std::set<int> s);
+        void setCounter(std::unordered_map<int, unsigned int> counter);
 
     //Other members
-        std::set<int> storeCompare(std::vector<int> *tester);
-        int showRatio(std::vector<int> *tester, std::set<int> s);
+        std::unordered_map<int, unsigned int> storeCompare(std::vector<int> *tester);
+        int showRatio(std::vector<int> *tester, std::unordered_map<int, unsigned int> counter);
 };
 
 #endif

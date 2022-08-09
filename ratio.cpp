@@ -41,9 +41,10 @@ Ratio::Ratio()
 /**********************************
  * Non-default constructors
  * ********************************/
-Ratio::Ratio(std::vector<int> tester, std::set<int> s)
+Ratio::Ratio(std::vector<int> tester, std::unordered_map<int, unsigned int> counter)
 {
     settester(tester);
+    setCounter(counter);
 }
 
 /**********************************
@@ -54,9 +55,9 @@ Ratio::Ratio(std::vector<int> tester, std::set<int> s)
     r.tester = &tester;
 }
 
-void Ratio::setset(std::set<int> s)
+void Ratio::setCounter(std::unordered_map<int, unsigned int> counter)
 {
- r.s = s;
+ this->counter = counter;
 }
 
 /**********************************
@@ -70,19 +71,6 @@ std::vector<int> Ratio::gettester() const
 /**********************************
  * OTHER DATA MEMBERS
  * ********************************/
-/**********************************
- * isEqual()
- * A flag for controlling
- * some other function's procedure.
- * ********************************/
-bool isEqual(const int &m, const int &n)
-{
- if(m != n)
- {
-  return false;
- }
- return true;
-}
 
 /**********************************
  * storeCompare()
@@ -90,20 +78,15 @@ bool isEqual(const int &m, const int &n)
  * vector within the set for the
  * upcoming comparison.
  * ********************************/
-std::set<int> Ratio::storeCompare(std::vector<int> *tester)
+std::unordered_map<int, unsigned int> Ratio::storeCompare(std::vector<int> *tester)
 {
- std::set<int> s;
- for(auto it = tester->begin(); it != tester->end(); it++)
+ int forCounter = 0;
+ counter.emplace(forCounter, tester);
+ for(const auto &p : counter)
  {
- if(*it == *s.end())
-  {
-   tester->erase(it);
-  } else
-   {
-    s.insert(*it);
-   }
+  std::cout << "counter[" << p.first << "] = " << p.second << '\n';
  }
- return s;
+ return counter;
 }
 
 /**********************************
@@ -114,24 +97,16 @@ std::set<int> Ratio::storeCompare(std::vector<int> *tester)
  * in the decimal format to the
  * millionths place.
  * ********************************/
-int Ratio::showRatio(std::vector<int> *tester, std::set<int> s)
+int Ratio::showRatio(std::vector<int> *tester, std::unordered_map<int, unsigned int> counter)
 {
- double count = 0.0;
- storeCompare(tester);
- for(auto it = tester->begin(); it != tester->end(); it++)
- {
-  for(int whatevz : s)
+  double count = 0.0;
+  storeCompare(tester);
+  for(int i = 0; i < counter.size(); ++i)
   {
-   if(whatevz == *it)
-   {
-    count++;
-   }
+   
   }
-  //stackoverflow.com/questions/37900432/ddg#37900496
- }
-
   unsigned long dat = (count / tester->size()); // Computation for the ratio.
   std::cout << "Number of matches: " << count << std::endl; // Console-out the number of matches.
   std::cout << dat << "\n" << std::endl; // Console-out the computation.
   return 0;
-}
+ }
