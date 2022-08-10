@@ -99,15 +99,16 @@ std::unordered_map<int, unsigned int> Ratio::storeCompare(std::vector<int> *test
  * ********************************/
 int Ratio::showRatio(std::vector<int> *tester, std::unordered_map<int, unsigned int> counter)
 {
-  //double count = 0.0;
-  storeCompare(tester);
-   for(auto it = tester->begin(); it != tester->end(); ++it)
-    {
-     ++counter[*it];
-    }
-  
-  /*unsigned long dat = (count / tester->size()); // Computation for the ratio.
-  std::cout << "Number of matches: " << count << std::endl; // Console-out the number of matches.
-  std::cout << dat << "\n" << std::endl; // Console-out the computation.*/
+  float count = 0;
+  auto it = tester->begin(); // The compiler interprets "auto" as an initialization of a variable and compels it to find its type.
+  auto end = tester->end(); // In this case, the compiler presumably finds the index item values and extrapolates the data type therefrom.
+  while(std::distance(it, end) > 1) // While we're greater than one item from the end (to keep from overrunning assigned memory).
+  {
+   if(it == end)
+   {
+    count++;
+   }
+  }
+  std::cout << std::fixed << std::setprecision(6) << count / tester->size();
   return 0;
  }
