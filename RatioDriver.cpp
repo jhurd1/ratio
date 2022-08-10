@@ -11,7 +11,7 @@ int main(int argc, char *argv[])
     int i = 0;
     bool stopper = false;
     std::vector<int> *tester = new std::vector<int>;
-    std::set<int> s;
+    std::unordered_map<int, unsigned int> counter;
     try
     {
      std::cout << "Provide five integers for the vector" << std::endl;
@@ -24,7 +24,7 @@ int main(int argc, char *argv[])
       }
       stopper =  true;
      }
-      r.showRatio(tester, s);
+      r.showRatio(tester, counter);
     } catch(std::exception &e)
     {
      std::cout << "Something went wrong with the user input and function call block." << std::endl;

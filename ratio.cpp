@@ -99,14 +99,15 @@ std::unordered_map<int, unsigned int> Ratio::storeCompare(std::vector<int> *test
  * ********************************/
 int Ratio::showRatio(std::vector<int> *tester, std::unordered_map<int, unsigned int> counter)
 {
-  double count = 0.0;
+  //double count = 0.0;
   storeCompare(tester);
-  for(int i = 0; i < counter.size(); ++i)
-  {
-   
-  }
-  unsigned long dat = (count / tester->size()); // Computation for the ratio.
+   for(auto it = tester->begin(); it != tester->end(); ++it)
+    {
+     ++counter[*it];
+    }
+  
+  /*unsigned long dat = (count / tester->size()); // Computation for the ratio.
   std::cout << "Number of matches: " << count << std::endl; // Console-out the number of matches.
-  std::cout << dat << "\n" << std::endl; // Console-out the computation.
+  std::cout << dat << "\n" << std::endl; // Console-out the computation.*/
   return 0;
  }
