@@ -48,6 +48,17 @@ Ratio::Ratio(std::vector<int> tester, std::unordered_map<int, unsigned int> coun
 }
 
 /**********************************
+ * Copy Constructor
+ * ********************************/
+Ratio::Ratio(const Ratio &r1)
+{
+ for(const auto &item: r1.counter)
+ {
+  counter[item.first] = new Ratio(*item.second);
+ }
+}
+
+/**********************************
  * Mutators
  * ********************************/
  void Ratio::settester(std::vector<int> tester)
