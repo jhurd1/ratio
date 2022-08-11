@@ -29,7 +29,7 @@ class Ratio
 
     // Accessors
         std::vector<int> gettester() const;
-        //int getK() const;
+        std::unordered_map<int, unsigned int> getcounter() const;
 
     // Mutators
         void settester(std::vector<int> tester);

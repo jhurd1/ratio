@@ -61,6 +61,11 @@ std::vector<int> Ratio::gettester() const
     return *tester;
 }
 
+std::unordered_map<int, unsigned int> Ratio::getcounter() const
+{
+    return counter;
+}
+
 /**********************************
  * OTHER DATA MEMBERS
  * ********************************/
