@@ -20,12 +20,12 @@ class Ratio
      * ******************************/
     private:
         std::vector<int> *tester;
-        std::unordered_map<int, unsigned int> counter;
+        std::unordered_map<int, unsigned int> *counter;
     public:
     // Constructors
         Ratio();
         Ratio(std::vector<int> tester, std::unordered_map<int, unsigned int> counter);
- Ratio(const Ratio &r1);
+        Ratio(const Ratio &r1);
 
     // Accessors
         std::vector<int> gettester() const;
