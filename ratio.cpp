@@ -9,24 +9,6 @@
 Ratio r;
 
 /***********************************
- * A struct for
- * comparison.
- * ********************************/
-struct ratioStruct
-{
-    int k;
-    ratioStruct(int const &i): k(i)
-    {
-     
-    }
-    bool operator()(int const &i)
-    {
-     return (i == k);
-    }
-};
-
-
-/***********************************
  * Constructors
  * ********************************/
 
@@ -54,7 +36,7 @@ Ratio::Ratio(const Ratio &r1)
 {
  for(const auto &item: r1.counter)
  {
-  counter[item.first] = new Ratio(*item.second);
+  counter[*item.first] = new Ratio(*item.second);
  }
 }
 
@@ -111,9 +93,9 @@ std::unordered_map<int, unsigned int> Ratio::storeCompare(std::vector<int> *test
 int Ratio::showRatio(std::vector<int> *tester, std::unordered_map<int, unsigned int> counter)
 {
   float count = 0;
-  auto it = tester->begin(); // The compiler interprets "auto" as an initialization of a variable and compels it to find its type.
-  auto end = tester->end(); // In this case, the compiler presumably finds the index item values and extrapolates the data type therefrom.
-  while(std::distance(it, end) > 1) // While we're greater than one item from the end (to keep from overrunning assigned memory).
+  auto it = tester->begin(); 
+  auto end = tester->end(); 
+  while(std::distance(it, end) > 1) 
   {
    if(it == end)
    {
