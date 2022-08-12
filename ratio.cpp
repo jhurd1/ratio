@@ -58,7 +58,7 @@ std::vector<int> Ratio::gettester() const
     return *tester;
 }
 
-std::unordered_map<int, unsigned int> Ratio::getcounter() //const
+std::unordered_map<int, unsigned int> Ratio::getcounter() const
 {
     return *counter;
 }
@@ -77,7 +77,7 @@ std::unordered_map<int, unsigned int> Ratio::storeCompare(std::vector<int> *test
 {
  int forCounter = 0;
  counter->emplace(forCounter, tester);
- for(const auto &p : *counter)
+ for(auto &p : *counter)
  {
   std::cout << "counter[" << p.first << "] = " << p.second << '\n';
  }
