@@ -31,11 +31,11 @@ Ratio::Ratio(std::vector<int> tester, std::unordered_map<int, unsigned int> coun
 
 /**********************************
  * Copy Constructor
- * ********************************/
+ * *******************************
 Ratio::Ratio(const Ratio &r1)
 {
  
-}
+}*/
 
 /**********************************
  * Mutators
