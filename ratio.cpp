@@ -31,11 +31,11 @@ Ratio::Ratio(std::vector<int> tester, std::unordered_map<int, unsigned int> coun
 
 /**********************************
  * Copy Constructor
- * *******************************
+ * ********************************/
 Ratio::Ratio(const Ratio &r1)
 {
  
-}*/
+}
 
 /**********************************
  * Mutators
@@ -77,7 +77,7 @@ std::unordered_map<int, unsigned int> Ratio::storeCompare(std::vector<int> *test
 {
  int forCounter = 0;
  counter->emplace(forCounter, tester);
- for(auto &p : *counter)
+ for(const auto &p : *counter)
  {
   std::cout << "counter[" << p.first << "] = " << p.second << '\n';
  }
