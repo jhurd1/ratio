@@ -23,18 +23,9 @@ Ratio::Ratio()
 /**********************************
  * Non-default constructors
  * ********************************/
-Ratio::Ratio(std::vector<int> tester, std::unordered_map<const int, unsigned int> counter)
+Ratio::Ratio(std::vector<int> tester)
 {
     settester(tester);
-    setCounter(counter);
-}
-
-/**********************************
- * Copy Constructor
- * ********************************/
-Ratio::Ratio(const Ratio &r1)
-{
- 
 }
 
 /**********************************
@@ -45,11 +36,6 @@ Ratio::Ratio(const Ratio &r1)
     r.tester = &tester;
 }
 
-void Ratio::setCounter(std::unordered_map<const int, unsigned int> counter)
-{
- //this->counter = &counter;
-}
-
 /**********************************
  * Accessors
  * ********************************/
@@ -58,31 +44,9 @@ std::vector<int> Ratio::gettester() const
     return *tester;
 }
 
-std::unordered_map<int, unsigned int> Ratio::getcounter() const
-{
-    return *counter;
-}
-
 /**********************************
  * OTHER DATA MEMBERS
  * ********************************/
-
-/**********************************
- * storeCompare()
- * Store the values held in the
- * vector within the set for the
- * upcoming comparison.
- * ********************************/
-std::unordered_map<int, unsigned int> Ratio::storeCompare(std::vector<int> *tester)
-{
- int forCounter = 0;
- counter->emplace(forCounter, tester);
- for(const auto &p : *counter)
- {
-  std::cout << "counter[" << p.first << "] = " << p.second << '\n';
- }
- return *counter;
-}
 
 /**********************************
  * showRatio()
@@ -92,7 +56,7 @@ std::unordered_map<int, unsigned int> Ratio::storeCompare(std::vector<int> *test
  * in the decimal format to the
  * millionths place.
  * ********************************/
-int Ratio::showRatio(std::vector<int> *tester, std::unordered_map<int, unsigned int> counter)
+int Ratio::showRatio(std::vector<int> *tester)
 {
   float count = 0;
   auto it = tester->begin(); 
