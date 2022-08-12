@@ -59,15 +59,20 @@ std::vector<int> Ratio::gettester() const
 int Ratio::showRatio(std::vector<int> *tester)
 {
   float count = 0;
-  auto it = tester->begin(); 
-  auto end = tester->end(); 
-  while(std::distance(it, end) > 1) 
+  int loopCycles = 0;
+  for(unsigned int i = 1; i < tester->size(); i++)
   {
-   if(it == end)
+   loopCycles++;
+   std::cout << "Loop has cycled: " << loopCycles << " " << " times!" << std::endl;
+   if(tester[i].size() == tester[i - 1].size())
    {
     count++;
    }
   }
-  std::cout << std::fixed << std::setprecision(6) << count / tester->size();
+  for(std::vector<int>::const_iterator j = tester->begin(); j != tester->end(); ++j)
+  {
+   std::cout << *j << " ";
+  }
+  std::cout << "\n" << std::fixed << std::setprecision(6) << count / tester->size() << std::endl;
   return 0;
  }
