@@ -23,7 +23,7 @@ Ratio::Ratio()
 /**********************************
  * Non-default constructors
  * ********************************/
-Ratio::Ratio(std::vector<int> tester, std::unordered_map<int, unsigned int> counter)
+Ratio::Ratio(std::vector<int> tester, std::unordered_map<const int, unsigned int> counter)
 {
     settester(tester);
     setCounter(counter);
@@ -45,7 +45,7 @@ Ratio::Ratio(const Ratio &r1)
     r.tester = &tester;
 }
 
-void Ratio::setCounter(std::unordered_map<int, unsigned int> counter)
+void Ratio::setCounter(std::unordered_map<const int, unsigned int> counter)
 {
  this->counter = &counter;
 }

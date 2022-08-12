@@ -24,7 +24,7 @@ class Ratio
     public:
     // Constructors
         Ratio();
-        Ratio(std::vector<int> tester, std::unordered_map<int, unsigned int> counter);
+        Ratio(std::vector<int> tester, std::unordered_map<const int, unsigned int> counter);
         Ratio(const Ratio &r1);
 
     // Accessors
@@ -33,7 +33,7 @@ class Ratio
 
     // Mutators
         void settester(std::vector<int> tester);
-        void setCounter(std::unordered_map<int, unsigned int> counter);
+        void setCounter(std::unordered_map<const int, unsigned int> counter);
 
     //Other members
         std::unordered_map<int, unsigned int> storeCompare(std::vector<int> *tester);
