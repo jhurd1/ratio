@@ -25,7 +25,8 @@ class Ratio
     // Constructors
         Ratio();
         Ratio(std::vector<int> tester, std::unordered_map<const int, unsigned int> counter);
-        Ratio(const Ratio &r1);
+        Ratio(const Ratio &r1); // Copy constructor.
+        Ratio &operator = (const Ratio &x); // Copy assignment.
 
     // Accessors
         std::vector<int> gettester() const;

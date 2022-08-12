@@ -47,7 +47,7 @@ Ratio::Ratio(const Ratio &r1)
 
 void Ratio::setCounter(std::unordered_map<const int, unsigned int> counter)
 {
- this->counter = &counter;
+ //this->counter = &counter;
 }
 
 /**********************************
