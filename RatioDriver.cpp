@@ -24,7 +24,7 @@ int main(int argc, char *argv[])
       }
       stopper =  true;
      }
-      r.showRatio(tester, counter);
+      r.showRatio(tester, *counter); // The pointer embodies an int representing a memory address storing the value of "counter".
     } catch(std::exception &e)
     {
      std::cout << "Something went wrong with the user input and function call block." << std::endl;

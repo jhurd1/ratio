@@ -34,10 +34,7 @@ Ratio::Ratio(std::vector<int> tester, std::unordered_map<int, unsigned int> coun
  * ********************************/
 Ratio::Ratio(const Ratio &r1)
 {
- for(const auto &item: r1.counter)
- {
-  counter[*item.first] = new Ratio(*item.second);
- }
+ 
 }
 
 /**********************************
@@ -50,7 +47,7 @@ Ratio::Ratio(const Ratio &r1)
 
 void Ratio::setCounter(std::unordered_map<int, unsigned int> counter)
 {
- this->counter = counter;
+ this->counter = &counter;
 }
 
 /**********************************
@@ -63,7 +60,7 @@ std::vector<int> Ratio::gettester() const
 
 std::unordered_map<int, unsigned int> Ratio::getcounter() const
 {
-    return counter;
+    return *counter;
 }
 
 /**********************************
@@ -79,12 +76,12 @@ std::unordered_map<int, unsigned int> Ratio::getcounter() const
 std::unordered_map<int, unsigned int> Ratio::storeCompare(std::vector<int> *tester)
 {
  int forCounter = 0;
- counter.emplace(forCounter, tester);
- for(const auto &p : counter)
+ counter->emplace(forCounter, tester);
+ for(const auto &p : *counter)
  {
   std::cout << "counter[" << p.first << "] = " << p.second << '\n';
  }
- return counter;
+ return *counter;
 }
 
 /**********************************
