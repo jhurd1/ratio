@@ -11,7 +11,6 @@ int main(int argc, char *argv[])
     int i = 0;
     bool stopper = false;
     std::vector<int> *tester = new std::vector<int>;
-    std::unordered_map<int, unsigned int> *counter = new std::unordered_map<int, unsigned int>;
     try
     {
      std::cout << "Provide five integers for the vector" << std::endl;
@@ -30,7 +29,6 @@ int main(int argc, char *argv[])
      std::cout << "Something went wrong with the user input and function call block." << std::endl;
     }
     delete tester;
-    delete counter;
     return 0;
 }
 
