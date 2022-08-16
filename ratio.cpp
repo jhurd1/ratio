@@ -24,9 +24,10 @@ Ratio::Ratio()
 /**********************************
  * Non-default constructors
  * ********************************/
-Ratio::Ratio(std::vector<int> tester)
+Ratio::Ratio(std::vector<int> tester, int i)
 {
     settester(tester);
+    setInt(i);
 }
 
 /**********************************
@@ -37,6 +38,11 @@ Ratio::Ratio(std::vector<int> tester)
     r.tester = &tester;
 }
 
+void Ratio::setInt(int i)
+{
+ r.i = &i;
+}
+
 /**********************************
  * Accessors
  * ********************************/
@@ -45,16 +51,31 @@ std::vector<int> Ratio::gettester() const
     return *tester;
 }
 
+int Ratio::getInt() const
+{
+ return *i;
+}
+
 /**********************************
  * OTHER DATA MEMBERS
  * ********************************/
 /**********************************
- * SortHelper
- * Help sort sort the vector.
+ * ValidateInt
+ * validates the user input.
  * ********************************/
-bool Ratio::sortHelper(int i, int j)
+int Ratio::validateInt(int *i)
 {
- return(i < j);
+ bool valid = false;
+ std::cout << "Provide five integers for the vector" << std::endl;
+ if(std::cin.good())
+ {
+  valid = true;
+ } else
+ {
+  std::cin.clear();
+  std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+ }
+ return *i;
 }
 
 /**********************************
@@ -100,6 +121,10 @@ int Ratio::showRatio(std::vector<int> *tester)
     count++;
    }
    if (tester->at(4) == tester->at(3))
+   {
+    count++;
+   }
+   if (tester->at(0) == tester->at(4))
    {
     count++;
    }

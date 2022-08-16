@@ -20,20 +20,22 @@ class Ratio
      * ******************************/
     private:
         std::vector<int> *tester;
-        
+        int *i;
     public:
     // Constructors
         Ratio();
-        Ratio(std::vector<int> tester);
+        Ratio(std::vector<int> tester, int i);
 
     // Accessors
         std::vector<int> gettester() const;
+        int getInt() const;
 
     // Mutators
         void settester(std::vector<int> tester);
+        void setInt(int i);
 
     //Other members
-        bool sortHelper(int i, int j);
+        int validateInt(int *i);
         int showRatio(std::vector<int> *tester);
         std::vector<int> sortVec(std::vector<int> *tester);
 };

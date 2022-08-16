@@ -8,18 +8,27 @@
 int main(int argc, char *argv[])
 {
     Ratio r;
-    int i = 0;
+    int *i = 0;
     bool stopper = false;
     std::vector<int> *tester = new std::vector<int>;
     try
     {
-     std::cout << "Provide five integers for the vector" << std::endl;
+     r.validateInt(i);
      while(!stopper)
      {
       for(int j = 0; j < 5; ++j)
       {
-       std::cin >> i;
-       tester->push_back(i);
+       if(std::cin >> *i)
+       {
+        tester->push_back(*i);
+       } else
+       {
+        std::cout << "You did me wrong!";
+        std::cin.clear();
+        std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+        stopper = true;
+        break;
+       }
       }
       stopper = true;
      }
