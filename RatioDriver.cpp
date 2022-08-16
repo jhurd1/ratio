@@ -21,7 +21,7 @@ int main(int argc, char *argv[])
        std::cin >> i;
        tester->push_back(i);
       }
-      stopper =  true;
+      stopper = true;
      }
       r.showRatio(tester);
     } catch(std::exception &e)

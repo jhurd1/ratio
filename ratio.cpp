@@ -89,11 +89,24 @@ int Ratio::showRatio(std::vector<int> *tester)
   for(unsigned int i = 1; i < tester->size(); i++) //Unsigned integers never drop below 0.
   //for(int i = 0; i < tester->size(); i++)
   {
-   if(tester[i].size() == tester[i - 1].size())
+   /*if(tester[i].size() == tester[i - 1].size())
    {
     count++;
    }
    if(i == i - 1)
+   {
+    count++;
+   }*/
+   if(tester->at(1) == tester->at(0))
+   {
+    count++;
+   } else if (tester->at(2) == tester->at(1))
+   {
+    count++;
+   } else if (tester->at(3) == tester->at(2))
+   {
+    count++;
+   } else if (tester->at(4) == tester->at(3))
    {
     count++;
    }
