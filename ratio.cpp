@@ -86,8 +86,7 @@ int Ratio::showRatio(std::vector<int> *tester)
 {
   float count = 0;
   sortVec(tester);
-  for(unsigned int i = 4; i < tester->size(); i++) //Unsigned integers never drop below 0.
-  //for(int i = 0; i < tester->size(); i++)
+  for(unsigned int i = 4; i < tester->size(); i++)
   {
    if(tester->at(1) == tester->at(0))
    {
