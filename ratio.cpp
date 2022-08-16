@@ -66,15 +66,27 @@ int Ratio::getInt() const
 int Ratio::validateInt(int *i)
 {
  bool valid = false;
+ std::vector<int> *tester = new std::vector<int>;
  std::cout << "Provide five integers for the vector" << std::endl;
- if(std::cin.good())
+ try {
+  for(int j = 0; j < 5; ++j)
  {
-  valid = true;
- } else
- {
-  std::cin.clear();
-  std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+  if(std::cin >> *i)
+  {
+   valid = true;
+   tester->push_back(*i);
+  } else
+  {
+   std::cin.clear();
+   std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+  }
  }
+ } catch (std::exception &e)
+ {
+  std::cout << "Error";
+ }
+ r.showRatio(tester);
+ delete tester;
  return *i;
 }
 
