@@ -67,6 +67,10 @@ bool Ratio::sortHelper(int i, int j)
 std::vector<int> Ratio::sortVec(std::vector<int> *tester)
 {
  std::sort(tester->begin(), tester->end());
+ for(std::vector<int>::const_iterator it = tester->begin(); it != tester->end(); ++it)
+ {
+ std::cout << *it << ' ';
+ }
  return *tester;
 }
 
@@ -82,16 +86,16 @@ int Ratio::showRatio(std::vector<int> *tester)
 {
   float count = 0;
   sortVec(tester);
-  //for(unsigned int i = 1; i < tester->size(); i++)
-  for(int i = 0; i < tester->size(); i++)
+  for(unsigned int i = 1; i < tester->size(); i++) //Unsigned integers never drop below 0.
+  //for(int i = 0; i < tester->size(); i++)
   {
    if(tester[i].size() == tester[i - 1].size())
    {
     count++;
-   /*} else if(tester[i - 1].size() == tester[i + 1].size())
+   }
+   if(i == i - 1)
    {
     count++;
-   }*/
    }
   }
   std::cout << "\n" << "The vector size: " << tester->size() << "\n" << "The number of matches counted: " << count;
