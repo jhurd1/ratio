@@ -1,6 +1,7 @@
 #include "ratio.h"
 #include <iostream>
 #include <iomanip>
+#include <algorithm>
 
 /*********************************
  * DATA MEMBERS
@@ -47,6 +48,27 @@ std::vector<int> Ratio::gettester() const
 /**********************************
  * OTHER DATA MEMBERS
  * ********************************/
+/**********************************
+ * SortHelper
+ * Help sort sort the vector.
+ * ********************************/
+bool Ratio::sortHelper(int i, int j)
+{
+ return(i < j);
+}
+
+/**********************************
+ * sortVec()
+ * Sort the vector
+ * to facilitate the
+ * ratio calculation of the vector's
+ * contents.
+ * ********************************/
+std::vector<int> Ratio::sortVec(std::vector<int> *tester)
+{
+ std::sort(tester->begin(), tester->end());
+ return *tester;
+}
 
 /**********************************
  * showRatio()
@@ -59,19 +81,21 @@ std::vector<int> Ratio::gettester() const
 int Ratio::showRatio(std::vector<int> *tester)
 {
   float count = 0;
+  sortVec(tester);
   //for(unsigned int i = 1; i < tester->size(); i++)
   for(int i = 0; i < tester->size(); i++)
   {
-   std::cout << "\n" << "The value at index: " << i << "\n";
    if(tester[i].size() == tester[i - 1].size())
    {
     count++;
-   } else if(tester[i - 1].size() == tester[i + 1].size())
+   /*} else if(tester[i - 1].size() == tester[i + 1].size())
    {
     count++;
+   }*/
    }
   }
   std::cout << "\n" << "The vector size: " << tester->size() << "\n" << "The number of matches counted: " << count;
   std::cout << "\n" << "The unsigned int loop calculation constitutes " << std::fixed << std::setprecision(6) << count / tester->size() << "\n" << std::endl;
+  
   return 0;
  }

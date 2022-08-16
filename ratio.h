@@ -33,7 +33,9 @@ class Ratio
         void settester(std::vector<int> tester);
 
     //Other members
+        bool sortHelper(int i, int j);
         int showRatio(std::vector<int> *tester);
+        std::vector<int> sortVec(std::vector<int> *tester);
 };
 
 #endif
