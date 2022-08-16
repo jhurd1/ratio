@@ -86,33 +86,27 @@ int Ratio::showRatio(std::vector<int> *tester)
 {
   float count = 0;
   sortVec(tester);
-  for(unsigned int i = 1; i < tester->size(); i++) //Unsigned integers never drop below 0.
+  for(unsigned int i = 4; i < tester->size(); i++) //Unsigned integers never drop below 0.
   //for(int i = 0; i < tester->size(); i++)
   {
-   /*if(tester[i].size() == tester[i - 1].size())
-   {
-    count++;
-   }
-   if(i == i - 1)
-   {
-    count++;
-   }*/
    if(tester->at(1) == tester->at(0))
    {
     count++;
-   } else if (tester->at(2) == tester->at(1))
+   if (tester->at(2) == tester->at(1))
    {
     count++;
-   } else if (tester->at(3) == tester->at(2))
+   }
+   if (tester->at(3) == tester->at(2))
    {
     count++;
-   } else if (tester->at(4) == tester->at(3))
+   }
+   if (tester->at(4) == tester->at(3))
    {
     count++;
    }
   }
+ }
   std::cout << "\n" << "The vector size: " << tester->size() << "\n" << "The number of matches counted: " << count;
   std::cout << "\n" << "The unsigned int loop calculation constitutes " << std::fixed << std::setprecision(6) << count / tester->size() << "\n" << std::endl;
-  
   return 0;
  }
