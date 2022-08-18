@@ -68,10 +68,12 @@ int Ratio::validateInt(int *i)
  bool valid = false;
  std::vector<int> *tester = new std::vector<int>;
  std::cout << "Provide five integers for the vector" << std::endl;
+ int k = 0;
+ *i = k;
  try {
   for(int j = 0; j < 5; ++j)
  {
-    std::cin >> *i;
+    std::cin >> k;
     if(std::cin.good())
     {
      valid = true;
