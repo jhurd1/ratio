@@ -8,7 +8,7 @@
 int main(int argc, char *argv[])
 {
     Ratio r;
-    int *i = 0;
+    int i = 0;
     bool stopper = false;
      try
      {

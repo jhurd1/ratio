@@ -24,7 +24,7 @@ Ratio::Ratio()
 /**********************************
  * Non-default constructors
  * ********************************/
-Ratio::Ratio(std::vector<int> tester, int *i)
+Ratio::Ratio(std::vector<int> tester, int i)
 {
     settester(tester);
     setInt(i);
@@ -38,7 +38,7 @@ Ratio::Ratio(std::vector<int> tester, int *i)
     r.tester = tester;
 }
 
-void Ratio::setInt(int *i)
+void Ratio::setInt(int i)
 {
  r.i = i;
 }
@@ -53,7 +53,7 @@ std::vector<int> Ratio::gettester() const
 
 int Ratio::getInt() const
 {
- return *i;
+ return i;
 }
 
 /**********************************
@@ -63,7 +63,7 @@ int Ratio::getInt() const
  * ValidateInt
  * validates the user input.
  * ********************************/
-int Ratio::validateInt(int *i)
+int Ratio::validateInt(int i)
 {
  bool valid = false;
  //std::vector<int> tester = new std::vector<int>;
@@ -71,11 +71,11 @@ int Ratio::validateInt(int *i)
  try {
   for(int j = 0; j < 5; ++j)
  {
-    std::cin >> *i;
+    std::cin >> i;
     if(std::cin.good())
     {
      valid = true;
-     tester.push_back(*i);
+     tester.push_back(i);
     } else
    {
     valid = false;
@@ -89,7 +89,7 @@ int Ratio::validateInt(int *i)
  }
  r.showRatio(tester);
  //delete tester;
- return *i;
+ return i;
 }
 
 /**********************************
