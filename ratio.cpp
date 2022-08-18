@@ -67,23 +67,29 @@ int Ratio::validateInt(int *i)
 {
  bool valid = false;
  std::vector<int> *tester = new std::vector<int>;
+ std::vector<int> &testerRef = *tester;
  std::cout << "Provide five integers for the vector" << std::endl;
  try {
   for(int j = 0; j < 5; ++j)
  {
-  if(std::cin >> *i)
-  {
-   valid = true;
-   tester->push_back(*i);
-  } else
-  {
-   std::cin.clear();
-   std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+   while(!valid)
+   {
+    std::cin >> testerRef[*i]; // Bad access.
+    if(std::cin.good())
+    {
+     valid = true;
+     tester->push_back(*i);
+    } else
+   {
+    valid = false;
+    std::cin.clear();
+    std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+   }
   }
  }
  } catch (std::exception &e)
  {
-  std::cout << "Error";
+  std::cout << "Error at input.";
  }
  r.showRatio(tester);
  delete tester;
