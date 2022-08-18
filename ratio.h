@@ -24,7 +24,7 @@ class Ratio
     public:
     // Constructors
         Ratio();
-        Ratio(std::vector<int> tester, int i);
+        Ratio(std::vector<int> tester, int *i);
 
     // Accessors
         std::vector<int> gettester() const;
@@ -32,7 +32,7 @@ class Ratio
 
     // Mutators
         void settester(std::vector<int> tester);
-        void setInt(int i);
+        void setInt(int *i);
 
     //Other members
         int validateInt(int *i);

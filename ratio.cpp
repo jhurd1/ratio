@@ -24,7 +24,7 @@ Ratio::Ratio()
 /**********************************
  * Non-default constructors
  * ********************************/
-Ratio::Ratio(std::vector<int> tester, int i)
+Ratio::Ratio(std::vector<int> tester, int *i)
 {
     settester(tester);
     setInt(i);
@@ -38,9 +38,9 @@ Ratio::Ratio(std::vector<int> tester, int i)
     r.tester = &tester;
 }
 
-void Ratio::setInt(int i)
+void Ratio::setInt(int *i)
 {
- r.i = &i;
+ r.i = i;
 }
 
 /**********************************
@@ -67,14 +67,11 @@ int Ratio::validateInt(int *i)
 {
  bool valid = false;
  std::vector<int> *tester = new std::vector<int>;
- std::vector<int> &testerRef = *tester;
  std::cout << "Provide five integers for the vector" << std::endl;
  try {
   for(int j = 0; j < 5; ++j)
  {
-   while(!valid)
-   {
-    std::cin >> testerRef[*i]; // Bad access.
+    std::cin >> *i;
     if(std::cin.good())
     {
      valid = true;
@@ -86,7 +83,6 @@ int Ratio::validateInt(int *i)
     std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
    }
   }
- }
  } catch (std::exception &e)
  {
   std::cout << "Error at input.";
