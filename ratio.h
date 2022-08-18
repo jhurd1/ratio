@@ -19,7 +19,7 @@ class Ratio
      * challenge.
      * ******************************/
     private:
-        std::vector<int> *tester;
+        std::vector<int> tester;
         int *i;
     public:
     // Constructors
@@ -36,8 +36,8 @@ class Ratio
 
     //Other members
         int validateInt(int *i);
-        int showRatio(std::vector<int> *tester);
-        std::vector<int> sortVec(std::vector<int> *tester);
+        int showRatio(std::vector<int> tester);
+        std::vector<int> sortVec(std::vector<int> tester);
 };
 
 #endif

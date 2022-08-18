@@ -35,7 +35,7 @@ Ratio::Ratio(std::vector<int> tester, int *i)
  * ********************************/
  void Ratio::settester(std::vector<int> tester)
 {
-    r.tester = &tester;
+    r.tester = tester;
 }
 
 void Ratio::setInt(int *i)
@@ -48,7 +48,7 @@ void Ratio::setInt(int *i)
  * ********************************/
 std::vector<int> Ratio::gettester() const
 {
-    return *tester;
+    return tester;
 }
 
 int Ratio::getInt() const
@@ -66,18 +66,16 @@ int Ratio::getInt() const
 int Ratio::validateInt(int *i)
 {
  bool valid = false;
- std::vector<int> *tester = new std::vector<int>;
+ //std::vector<int> tester = new std::vector<int>;
  std::cout << "Provide five integers for the vector" << std::endl;
- int k = 0;
- *i = k;
  try {
   for(int j = 0; j < 5; ++j)
  {
-    std::cin >> k;
+    std::cin >> *i;
     if(std::cin.good())
     {
      valid = true;
-     tester->push_back(*i);
+     tester.push_back(*i);
     } else
    {
     valid = false;
@@ -90,7 +88,7 @@ int Ratio::validateInt(int *i)
   std::cout << "Error at input.";
  }
  r.showRatio(tester);
- delete tester;
+ //delete tester;
  return *i;
 }
 
@@ -101,14 +99,14 @@ int Ratio::validateInt(int *i)
  * ratio calculation of the vector's
  * contents.
  * ********************************/
-std::vector<int> Ratio::sortVec(std::vector<int> *tester)
+std::vector<int> Ratio::sortVec(std::vector<int> tester)
 {
- std::sort(tester->begin(), tester->end());
- for(std::vector<int>::const_iterator it = tester->begin(); it != tester->end(); ++it)
+ std::sort(tester.begin(), tester.end());
+ for(std::vector<int>::const_iterator it = tester.begin(); it != tester.end(); ++it)
  {
  std::cout << *it << ' ';
  }
- return *tester;
+ return tester;
 }
 
 /**********************************
@@ -119,34 +117,34 @@ std::vector<int> Ratio::sortVec(std::vector<int> *tester)
  * in the decimal format to the
  * millionths place.
  * ********************************/
-int Ratio::showRatio(std::vector<int> *tester)
+int Ratio::showRatio(std::vector<int> tester)
 {
   float count = 0;
   sortVec(tester);
-  for(unsigned int i = 4; i < tester->size(); i++)
+  for(unsigned int i = 4; i < tester.size(); i++)
   {
-   if(tester->at(1) == tester->at(0))
+   if(tester.at(1) == tester.at(0))
    {
     count++;
-   if (tester->at(2) == tester->at(1))
-   {
-    count++;
-   }
-   if (tester->at(3) == tester->at(2))
+   if (tester.at(2) == tester.at(1))
    {
     count++;
    }
-   if (tester->at(4) == tester->at(3))
+   if (tester.at(3) == tester.at(2))
    {
     count++;
    }
-   if (tester->at(0) == tester->at(4))
+   if (tester.at(4) == tester.at(3))
+   {
+    count++;
+   }
+   if (tester.at(0) == tester.at(4))
    {
     count++;
    }
   }
  }
-  std::cout << "\n" << "The vector size: " << tester->size() << "\n" << "The number of matches counted: " << count;
-  std::cout << "\n" << "The unsigned int loop calculation constitutes " << std::fixed << std::setprecision(6) << count / tester->size() << "\n" << std::endl;
+  std::cout << "\n" << "The vector size: " << tester.size() << "\n" << "The number of matches counted: " << count;
+  std::cout << "\n" << "The unsigned int loop calculation constitutes " << std::fixed << std::setprecision(6) << count / tester.size() << "\n" << std::endl;
   return 0;
  }
