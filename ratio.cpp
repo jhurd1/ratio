@@ -65,24 +65,31 @@ int Ratio::getInt() const
  * ********************************/
 int Ratio::validateInt(int i)
 {
+ bool valid = true;
  std::cout << "Provide five integers for the vector" << std::endl;
  try {
-  for(int j = 0; j < 5; ++j)
- {
+  while(valid)
+  {
+   for(int j = 0; j < 5; ++j)
+   {
     std::cin >> i;
     if(!std::cin)
     {
+     valid = false;
+     std::cout << "Invalid data type." << "\n" << "You shall not pass." << std::endl;
      std::cin.clear();
      std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
     } else
     {
      tester->push_back(i); // Allocator: Bad access! Void pointer?
     }
-  }
- } catch (std::exception &e)
- {
-  std::cout << "Error at input.";
- }
+   }
+   valid = false;
+   }
+  } catch (std::exception &e)
+   {
+    std::cout << "Error at input.";
+   }
  r.showRatio(tester);
  delete tester;
  return i;
