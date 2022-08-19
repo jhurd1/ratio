@@ -129,6 +129,7 @@ int Ratio::showRatio(std::vector<int> *tester)
    if(tester->at(1) == tester->at(0))
    {
     count++;
+   }
    if (tester->at(2) == tester->at(1))
    {
     count++;
@@ -146,7 +147,6 @@ int Ratio::showRatio(std::vector<int> *tester)
     count++;
    }
   }
- }
   std::cout << "\n" << "The vector size: " << tester->size() << "\n" << "The number of matches counted: " << count;
   std::cout << "\n" << "The unsigned int loop calculation constitutes " << std::fixed << std::setprecision(6) << count / tester->size() << "\n" << std::endl;
   return 0;
