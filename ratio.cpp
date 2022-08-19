@@ -72,19 +72,19 @@ int Ratio::validateInt(int i)
   {
    for(int j = 0; j < 5; ++j)
    {
-    std::cin >> i;
-    if(!std::cin)
-    {
-     valid = false;
-     std::cout << "Invalid data type." << "\n" << "You shall not pass." << std::endl;
-     std::cin.clear();
-     std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-    } else
-    {
-     tester->push_back(i); // Allocator: Bad access! Void pointer?
+     std::cin >> i;
+     if(!std::cin)
+     {
+       valid = false;
+       std::cout << "Invalid data type." << "\n" << "You shall not pass." << std::endl;
+       std::cin.clear();
+       std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+       break;
+      } else
+      {
+       tester->push_back(i); // Allocator: Bad access! Void pointer?
+      }
     }
-   }
-   valid = false;
    }
   } catch (std::exception &e)
    {
@@ -123,6 +123,8 @@ std::vector<int> Ratio::sortVec(std::vector<int> *tester)
 int Ratio::showRatio(std::vector<int> *tester)
 {
   float count = 0;
+  if(tester->size() == 5)
+  {
   sortVec(tester);
  for(unsigned int i = 4; i < tester->size(); i++)
   {
@@ -149,5 +151,6 @@ int Ratio::showRatio(std::vector<int> *tester)
   }
   std::cout << "\n" << "The vector size: " << tester->size() << "\n" << "The number of matches counted: " << count;
   std::cout << "\n" << "The unsigned int loop calculation constitutes " << std::fixed << std::setprecision(6) << count / tester->size() << "\n" << std::endl;
+  }
   return 0;
  }
