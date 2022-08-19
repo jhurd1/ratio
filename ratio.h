@@ -19,7 +19,7 @@ class Ratio
      * challenge.
      * ******************************/
     private:
-        std::vector<int> *tester;
+        std::vector<int> *tester = new std::vector<int>;
         int i;
     public:
     // Constructors
