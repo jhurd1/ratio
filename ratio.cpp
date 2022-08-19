@@ -65,22 +65,20 @@ int Ratio::getInt() const
  * ********************************/
 int Ratio::validateInt(int i)
 {
- bool valid = false;
+ //bool valid = false;
  std::cout << "Provide five integers for the vector" << std::endl;
  try {
   for(int j = 0; j < 5; ++j)
  {
     std::cin >> i;
-    if(std::cin.good())
+    if(!std::cin)
     {
-     valid = true;
-     tester->push_back(i);
+     std::cin.clear();
+     std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
     } else
-   {
-    valid = false;
-    std::cin.clear();
-    std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-   }
+    {
+     tester->push_back(i); // Allocator: Bad access!
+    }
   }
  } catch (std::exception &e)
  {
