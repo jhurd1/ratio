@@ -85,6 +85,7 @@ int Ratio::validateInt(int i)
        tester->push_back(i); // Allocator: Bad access! Void pointer?
       }
     }
+    valid = false;
    }
   } catch (std::exception &e)
    {
