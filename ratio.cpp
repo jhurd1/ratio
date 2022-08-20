@@ -82,7 +82,7 @@ int Ratio::validateInt(int i)
        break;
       } else
       {
-       tester->push_back(i); // Allocator: Bad access! Void pointer?
+       tester->push_back(i);
       }
     }
     valid = false;
